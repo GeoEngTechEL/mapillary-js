@@ -131,7 +131,7 @@ describe("Navigator.moveToKey$", () => {
                 cl: { lat: 0, lon: 0 },
                 key: key,
                 l: { lat: 0, lon: 0 },
-                sequence: { key: sequenceKey },
+                sequence_key: sequenceKey,
             })));
 
         let stateSpy: jasmine.Spy = spyOn(stateService, "setNodes").and.stub();
@@ -240,7 +240,7 @@ describe("Navigator.moveToKey$", () => {
             cl: { lat: 0, lon: 0 },
             key: key,
             l: { lat: 0, lon: 0 },
-            sequence: { key: sequenceKey },
+            sequence_key: sequenceKey,
         });
 
         spyOn(graphService, "cacheNode$").and.returnValue(Observable.of<Node>(node));
@@ -275,7 +275,7 @@ describe("Navigator.moveToKey$", () => {
             cl: { lat: 0, lon: 0 },
             key: key,
             l: { lat: 0, lon: 0 },
-            sequence: { key: sequenceKey },
+            sequence_key: sequenceKey,
         });
 
         spyOn(graphService, "cacheNode$").and.returnValue(cacheNodeSubject$);
@@ -315,7 +315,7 @@ describe("Navigator.movedToKey$", () => {
                 cl: { lat: 0, lon: 0 },
                 key: key,
                 l: { lat: 0, lon: 0 },
-                sequence: { key: sequenceKey },
+                sequence_key: sequenceKey,
             })));
 
         spyOn(stateService, "setNodes").and.stub();
