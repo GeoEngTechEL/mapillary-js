@@ -26,6 +26,7 @@ import {
     Settings,
 } from "../Utils";
 import {RenderMode} from "../Render";
+import {TransitionMode} from "../State";
 
 /**
  * @class Viewer
@@ -282,7 +283,7 @@ export class Viewer extends EventEmitter {
 
         Settings.setOptions(options);
 
-        this._navigator = new Navigator(clientId, token);
+        this._navigator = new Navigator(clientId, options, token);
         this._container = new Container(id, this._navigator.stateService, options);
         this._observer = new Observer(this, this._navigator, this._container);
         this._componentController = new ComponentController(this._container, this._navigator, this._observer, key, options.component);
@@ -749,6 +750,20 @@ export class Viewer extends EventEmitter {
      */
     public setRenderMode(renderMode: RenderMode): void {
         this._container.renderService.renderMode$.next(renderMode);
+    }
+
+    /**
+     * Set the viewer's transition mode.
+     *
+     * @param {TransitionMode} transitionMode - Transition mode.
+     *
+     * @example
+     * ```
+     * viewer.setTransitionMode(Mapillary.TransitionMode.Instantaneous);
+     * ```
+     */
+    public setTransitionMode(transitionMode: TransitionMode): void {
+        this._navigator.stateService.setTransitionMode(transitionMode);
     }
 
     /**
